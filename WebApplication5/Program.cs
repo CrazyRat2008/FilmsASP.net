@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IFilmIRepository, FilmRepository>();
+builder.Services.AddScoped<ISearchFilm, FilmSearchService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

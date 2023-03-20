@@ -9,9 +9,9 @@ namespace ClassLibrary1
         {
             Films = new List<Film>
         {
-            new Film { Name = "Margarita", Author = "Tequila, lime juice, triple sec", Style = "A classic tequila cocktail" , Description ="4123412"},
-            new Film { Name = "Manhattan", Author = "Whiskey, sweet vermouth, bitters", Style = "A classic whiskey cocktail", Description ="4123412" },
-            new Film { Name = "Gin and Tonic", Author = "Gin, tonic water, lime", Style = "A refreshing gin cocktail", Description ="4123412" }
+            new Film {Id=1, Name = "Margarita", Author = "Tequila, lime juice, triple sec", Style = "A classic tequila cocktail" , Description ="4123412"},
+            new Film {Id=2, Name = "Manhattan", Author = "Whiskey, sweet vermouth, bitters", Style = "A classic whiskey cocktail", Description ="4123412" },
+            new Film {Id=3, Name = "Gin and Tonic", Author = "Gin, tonic water, lime", Style = "A refreshing gin cocktail", Description ="4123412" }
         };
         } 
         public void AddFilm(Film f)
@@ -39,17 +39,14 @@ namespace ClassLibrary1
 
         public void UpdateFilm(Film f)
         {
-            //var existingBook = Films.FirstOrDefault(x => x.Id == f.Id);
-            //if (existingBook != null)
-            //{
-            //    f.Title = existingBook.Title;
-            //    f.Author = existingBook.Author;
-            //    book.Genre = existingBook.Genre;
-            //    book.Publisher = existingBook.Publisher;
-            //    book.YearOfPublishing = existingBook.YearOfPublishing;
-
-
-            //}
+            var existingFilm = Films.FirstOrDefault(x => x.Id == f.Id);
+            if (existingFilm != null)
+            {
+                f.Name = existingFilm.Name;
+                f.Author = existingFilm.Author;
+                f.Style = existingFilm.Style;
+                f.Description= existingFilm.Description; 
+            }
         } 
     }
 }

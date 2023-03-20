@@ -1,19 +1,20 @@
 ﻿@page
-@model WebApplication5.Pages.FilmsModel
+@model WebApplication5.Pages.SearchModel
 @{
 }
 <body>
 	<div style="width:100vh;">
-		<p><img src="Images/icons8_film_reel_480px.png" width="100px;"/></p>
+		<form method="post">
+			<label >Search	</label>
+			<input type="text" name="myInput"/>
+			<button class="button" type="submit">Go</button>
+		</form> 
 		<h1 style="color:white;">Sesions</h1>
 		<div class="List">
 			<ul class="ul-style">
-				@foreach (var film in Model.films)
+				@foreach (var film in Model.Films)
 				{
-					
-					<li class="li-style">@film.Name - @film.Author - @film.Style - @film.Description <a asp-page="./Details" class="button" asp-route-id=@film.Id>Details</a> <a asp-page="./Update" class="button" asp-route-id=@film.Id>Update</a> </li>
-
-					
+					<li class="li-style">@film.Name - @film.Author - @film.Style - @film.Description <a asp-page="./Details" class="button" asp-route-id=@film.Id>Details</a></li>
 				}
 			</ul>
 		</div>
